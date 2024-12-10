@@ -8,7 +8,7 @@
 										<!--begin::Page title-->
 										<div class="page-title d-flex flex-column justify-content-center gap-1 me-3">
 											<!--begin::Title-->
-											<h1 class="page-heading d-flex flex-column justify-content-center text-gray-900 fw-bold fs-3 m-0">Inventory Management</h1>
+											<h1 class="page-heading d-flex flex-column justify-content-center text-gray-900 fw-bold fs-3 m-0">Request To Restock</h1>
 											<!--end::Title-->
 											<!--begin::Breadcrumb-->
 											<ul class="breadcrumb breadcrumb-separatorless fw-semibold fs-7 my-0">
@@ -23,7 +23,7 @@
 												</li>
 												<!--end::Item-->
 												<!--begin::Item-->
-												<li class="breadcrumb-item text-muted">Inventory Management</li>
+												<li class="breadcrumb-item text-muted">Request Restock</li>
 												<!--end::Item-->
 												
 											</ul>
@@ -72,14 +72,19 @@
 														<th class="min-w-125px">Name</th>
 														<th class="min-w-125px">Category</th>
 														<!-- <th class="min-w-125px">password</th> -->
-														<th class="min-w-125px">Stock</th>
-														<th class="min-w-125px">create Date</th>
+														<th class="min-w-125px">Current Stock</th>
+														<th class="min-w-125px">Request Date</th>
 														<th class="text-end min-w-100px">Actions</th>
 													</tr>
 												</thead>
 												<tbody class="text-gray-600 fw-semibold">
-													<? if($inventorys){ ?>
-													<? foreach ($inventorys as $key) { ?>
+													<? if($requests){ ?>
+													<? foreach ($requests as $key) { ?>
+													<?
+
+													$inventory = get_any_table_row(array('id' => $key['inventory_id']), 'inventory');
+
+													?>
 													<tr>
 														<td class="d-flex align-items-center">
 															<!--begin:: Avatar -->
@@ -93,28 +98,27 @@
 															<!--end::Avatar-->
 															<!--begin::User details-->
 															<div class="d-flex flex-column">
-																<a href="apps/user-management/users/view.html" class="text-gray-800 text-hover-primary mb-1"><?=$key['name']?></a>
+																<a href="apps/user-management/users/view.html" class="text-gray-800 text-hover-primary mb-1"><?=$inventory['name']?></a>
 																<!-- <span>smith@kpmg.com</span> -->
 															</div>
 															<!--begin::User details-->
 														</td>
-														<td><?=$key['category']?></td>
+														<td><?=$inventory['category']?></td>
 														<td>
 															<?
-																if ($key['stock'] == 0) {
-																	echo "<div class='badge badge-success fw-bold badge-lg'>Out Of Stock</div>";
-																} else {
-																	echo $key['stock'];
-																}
-															?>
+															if ($inventory['stock'] == '0') { ?>
+															<div class="badge badge-danger fw-bold badge-lg">Out Of Stock</div>
+															<?} else { ?>
+															<?=$inventory['stock']?>
+															<?}?>
 														</td>
 														<td>
 															<?=dmy($key['create_dt'])?>
 														</td>
 														
 														<td class="text-end">
-															<a href="#" class="btn btn-light btn-info btn-flex btn-center btn-sm edit-staff" data-kt-menu-placement="bottom-end" data-init="<?=$key['id']?>">Edit</a>
-															<a href="javascript:void(0);" class="btn btn-light btn-danger btn-flex btn-center btn-sm delete-inventory" data-init="<?=$key['id']?>">Delete</a>
+															<a href="#" class="btn btn-light btn-warning btn-flex btn-center btn-sm process-stock" data-kt-menu-placement="bottom-end" data-init="<?=$key['id']?>">Process</a>
+															<!-- <a href="javascript:void(0);" class="btn btn-light btn-danger btn-flex btn-center btn-sm delete-inventory" data-init="<?=$key['id']?>">Delete</a> -->
 														</td>
 													</tr>
 													<? } ?>

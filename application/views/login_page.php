@@ -9,8 +9,7 @@
   <meta name="keywords" content="">
 
   <!-- Favicons -->
-  <link href="<?=base_url()?>assets-m/img/favicon.png" rel="icon">
-  <link href="<?=base_url()?>assets-m/img/apple-touch-icon.png" rel="apple-touch-icon">
+  <link rel="shortcut icon" href="<?=base_url()?>assets/logo/my-logo.png" />
 
   <!-- Fonts -->
   <link href="https://fonts.googleapis.com" rel="preconnect">
@@ -58,7 +57,7 @@
     <div class="branding">
 
       <div class="container position-relative d-flex align-items-center justify-content-between">
-        <a href="index.html" class="logo d-flex align-items-center">
+        <a href="<?=base_url()?>" class="logo d-flex align-items-center">
           <!-- Uncomment the line below if you also wish to use an image logo -->
           <!-- <img src="<?=base_url()?>assets-m/img/logo.png" alt=""> -->
           <h5 class="sitename">School Stationeries Inventory System<br></h5>
@@ -66,8 +65,8 @@
 
         <nav id="navmenu" class="navmenu">
           <ul>
-            <li><a href="index.html" class="active">Home</a></li>
-            <li><a href="about.html">Inventory</a></li>
+            <li><a href="<?=base_url()?>" class="active">Home</a></li>
+            <!-- <li><a href="about.html">Inventory</a></li> -->
             <!-- <li><a href="services.html">Services</a></li>
             <li><a href="portfolio.html">Portfolio</a></li>
             <li><a href="team.html">Team</a></li>
@@ -92,6 +91,7 @@
               </ul>
             </li>
             */?>
+            <li><a href="<?=base_url('main/register_page')?>">Register</a></li>
             <li><a href="<?=base_url('main/login_page')?>">Login</a></li>
           </ul>
           <i class="mobile-nav-toggle d-xl-none bi bi-list"></i>
@@ -126,21 +126,23 @@
       
 
         <div class="row gy-4 mt-2">
-          <!-- <div class="col-lg-6" data-aos="fade-up" data-aos-delay="300"> </div> -->
+          <center><h2><div class="col-lg-6" data-aos="fade-up" data-aos-delay="300">Login to our system</div></h2></center>
         <center>
           <div class="col-lg-6">
             <!-- <form action="forms/contact.php" method="post" class="php-email-form" data-aos="fade-up" data-aos-delay="400"> -->
               <form action="<?=base_url('main/loginProcess')?>" method="post" class="php-email-form" data-aos="fade-up" data-aos-delay="500">
-              <div class="row gy-4">
+              
               <div class="row gy-4">
 
-                <div class="col-md-12">
-                  <input type="text" name="username" class="form-control" placeholder="Username" required="">
+                <div class="col-md-12" style="text-align: left;">
+                  <label>Email</label>
+                  <input type="text" name="email" class="form-control" placeholder="" required="">
                 </div>
 
 
-                <div class="col-md-12">
-                  <input type="text" class="form-control" name="password" placeholder="Password" required="">
+                <div class="col-md-12" style="text-align:left;">
+                  <label>Password</label>
+                  <input type="password" class="form-control" name="password" placeholder="" required="">
                 </div>
 
 
@@ -186,7 +188,7 @@
             <p><strong>Email:</strong> <span>info@example.com</span></p>
           </div>
         </div>
-
+<!-- 
         <div class="col-lg-2 col-md-3 footer-links">
           <h4>Useful Links</h4>
           <ul>
@@ -195,9 +197,9 @@
             <li><i class="bi bi-chevron-right"></i> <a href="#">Services</a></li>
             <li><i class="bi bi-chevron-right"></i> <a href="#">Terms of service</a></li>
           </ul>
-        </div>
+        </div> -->
 
-        <div class="col-lg-2 col-md-3 footer-links">
+        <!-- <div class="col-lg-2 col-md-3 footer-links">
           <h4>Our Services</h4>
           <ul>
             <li><i class="bi bi-chevron-right"></i> <a href="#">Web Design</a></li>
@@ -205,8 +207,8 @@
             <li><i class="bi bi-chevron-right"></i> <a href="#">Product Management</a></li>
             <li><i class="bi bi-chevron-right"></i> <a href="#">Marketing</a></li>
           </ul>
-        </div>
-
+        </div> -->
+<!-- 
         <div class="col-lg-4 col-md-12">
           <h4>Follow Us</h4>
           <p>Cras fermentum odio eu feugiat lide par naso tierra videa magna derita valies</p>
@@ -216,7 +218,7 @@
             <a href=""><i class="bi bi-instagram"></i></a>
             <a href=""><i class="bi bi-linkedin"></i></a>
           </div>
-        </div>
+        </div> -->
 
       </div>
     </div>

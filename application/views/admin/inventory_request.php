@@ -8,7 +8,7 @@
 										<!--begin::Page title-->
 										<div class="page-title d-flex flex-column justify-content-center gap-1 me-3">
 											<!--begin::Title-->
-											<h1 class="page-heading d-flex flex-column justify-content-center text-gray-900 fw-bold fs-3 m-0">Inventory Management</h1>
+											<h1 class="page-heading d-flex flex-column justify-content-center text-gray-900 fw-bold fs-3 m-0">Inventory Management (Request Item)</h1>
 											<!--end::Title-->
 											<!--begin::Breadcrumb-->
 											<ul class="breadcrumb breadcrumb-separatorless fw-semibold fs-7 my-0">
@@ -23,7 +23,7 @@
 												</li>
 												<!--end::Item-->
 												<!--begin::Item-->
-												<li class="breadcrumb-item text-muted">Inventory Management</li>
+												<li class="breadcrumb-item text-muted">Request Item</li>
 												<!--end::Item-->
 												
 											</ul>
@@ -31,10 +31,7 @@
 										</div>
 										<!--end::Page title-->
 										<!--begin::Actions-->
-										<div class="d-flex align-items-center gap-2 gap-lg-3">
-											<a href="#" class="btn btn-flex btn-info btn-sm fs-7 fw-bold" data-bs-toggle="modal" data-bs-target="#kt_modal_new_address">+ Create Inventory</a>
-											<!-- <a href="#" class="btn btn-flex btn-primary h-40px fs-7 fw-bold" data-bs-toggle="modal" data-bs-target="#kt_modal_create_campaign">Add New Staff</a> -->
-										</div>
+										
 										<!--end::Actions-->
 									</div>
 									<!--end::Toolbar wrapper-->
@@ -69,10 +66,10 @@
 											<table class="table align-middle table-row-dashed fs-6 gy-5" id="dt_staff_list">
 												<thead>
 													<tr class="text-start text-muted fw-bold fs-7 text-uppercase gs-0">
-														<th class="min-w-125px">Name</th>
+														<th class="min-w-125px">Request Name</th>
 														<th class="min-w-125px">Category</th>
 														<!-- <th class="min-w-125px">password</th> -->
-														<th class="min-w-125px">Stock</th>
+														<th class="min-w-125px">Request Stock</th>
 														<th class="min-w-125px">create Date</th>
 														<th class="text-end min-w-100px">Actions</th>
 													</tr>
@@ -113,8 +110,7 @@
 														</td>
 														
 														<td class="text-end">
-															<a href="#" class="btn btn-light btn-info btn-flex btn-center btn-sm edit-staff" data-kt-menu-placement="bottom-end" data-init="<?=$key['id']?>">Edit</a>
-															<a href="javascript:void(0);" class="btn btn-light btn-danger btn-flex btn-center btn-sm delete-inventory" data-init="<?=$key['id']?>">Delete</a>
+															<a href="#" class="btn btn-light btn-info btn-flex btn-center btn-sm supply-item" data-kt-menu-placement="bottom-end" data-init="<?=$key['id']?>">Approve & Supply This Item</a>
 														</td>
 													</tr>
 													<? } ?>

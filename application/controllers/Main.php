@@ -35,6 +35,55 @@ class Main extends CI_Controller {
 		$this->load->view('login_page', $data);
 	}
 
+	function register_page($data=false)
+	{
+		$this->load->view('register_page', $data);
+	}
+
+	function doCreateAccount($data=false)
+	{
+		$data = $this->input->post();
+		// print_r($data); exit();
+
+		$emailExist = $this->main->check_email(array('email' => $data['email']));
+
+		// echo "string"; exit;
+
+		// print_r($emailExist); exit;
+
+		if ($emailExist['status'] == true) {
+			$this->session->set_flashdata('error', 'Sorry, the email address is already exist.');
+			redirect(base_url('main/register_page'));
+		} else {
+
+			# do register account
+			$data_insert = array(
+				'name' 	 	 => $data['name'],
+				'email'  	 => $data['email'],
+				'password' 	 => md5($data['password']),
+				'create_dt'  => current_date(),
+				'user_type'  => '1',
+			);
+
+			// print_r($data_insert); exit;
+
+			$insert = $this->main->insert_users_table($this->users_table, $data_insert);
+			
+
+			// if ($insert == true) {
+			// 	$response    = array('status' => true, 'msg' => 'Account has been successfully created !');
+			// } else {
+			// 	$response = array('status' => false, 'msg' => 'Something when wrong !');
+			// }
+
+			$this->session->set_flashdata('success', 'Account has been successfully created !');
+			redirect(base_url('main/register_page'));
+		}
+
+		// echo encode($response);
+		// exit();
+	}
+
 	function loginProcess($data=false)
 	{
 		$data = $this->input->post();
@@ -44,7 +93,7 @@ class Main extends CI_Controller {
 		if ($user_login == false) {
 
 			$this->session->set_flashdata('error', 'Sorry, the email or password is incorrect, please try again.');
-			redirect('main/login');
+			redirect('main/login_page');
 
 		} else {
 
@@ -58,10 +107,28 @@ class Main extends CI_Controller {
 			$this->session->set_userdata($sess_data);
 			if ($user_login['user_type'] == 1) {
 				redirect('app');
-			} else {
-				redirect('office');
+			} 
+
+			if ($user_login['user_type'] == 3) {
+				// code...
+				redirect('admin');
 			}
+
+			if ($user_login['user_type'] == 2) {
+				// code...
+				redirect('teacher');
+			}
+
+			// else {
+			// 	redirect('office');
+			// }
 			
 		}
+	}
+
+	function logout()
+	{	
+		$this->session->sess_destroy();
+		redirect();
 	}
 }

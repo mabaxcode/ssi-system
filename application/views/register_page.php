@@ -26,9 +26,16 @@
   <!-- Main CSS File -->
   <link href="<?=base_url()?>assets-m/css/main.css" rel="stylesheet">
 
+  <!-- =======================================================
+  * Template Name: Eterna
+  * Template URL: https://bootstrapmade.com/eterna-free-multipurpose-bootstrap-template/
+  * Updated: Aug 07 2024 with Bootstrap v5.3.3
+  * Author: BootstrapMade.com
+  * License: https://bootstrapmade.com/license/
+  ======================================================== -->
 </head>
 
-<body class="index-page">
+<body class="contact-page">
 
   <header id="header" class="header sticky-top">
 
@@ -50,7 +57,7 @@
     <div class="branding">
 
       <div class="container position-relative d-flex align-items-center justify-content-between">
-        <a href="<?=base_url();?>" class="logo d-flex align-items-center">
+        <a href="<?=base_url()?>" class="logo d-flex align-items-center">
           <!-- Uncomment the line below if you also wish to use an image logo -->
           <!-- <img src="<?=base_url()?>assets-m/img/logo.png" alt=""> -->
           <h5 class="sitename">School Stationeries Inventory System<br></h5>
@@ -58,7 +65,7 @@
 
         <nav id="navmenu" class="navmenu">
           <ul>
-            <li><a href="<?=base_url();?>" class="active">Home</a></li>
+            <li><a href="<?=base_url()?>" class="active">Home</a></li>
             <!-- <li><a href="about.html">Inventory</a></li> -->
             <!-- <li><a href="services.html">Services</a></li>
             <li><a href="portfolio.html">Portfolio</a></li>
@@ -86,7 +93,6 @@
             */?>
             <li><a href="<?=base_url('main/register_page')?>">Register</a></li>
             <li><a href="<?=base_url('main/login_page')?>">Login</a></li>
-
           </ul>
           <i class="mobile-nav-toggle d-xl-none bi bi-list"></i>
         </nav>
@@ -99,170 +105,85 @@
 
   <main class="main">
 
-    <!-- Hero Section -->
-    <section id="hero" class="hero section">
-
-      <div id="hero-carousel" class="carousel slide carousel-fade" data-bs-ride="carousel" data-bs-interval="5000">
-
-        <div class="carousel-item active">
-          <img src="<?=base_url()?>assets-m/img/hero-carousel/hero-carousel-1.jpg" alt="">
-          <div class="carousel-container">
-            <h2>Welcome to <span>School Stationeries Inventory System</span></h2>
-            <p><b>The Glory Pre & Primary School Stationeries Inventory System</b></p>
-            <a href="<?=base_url('main/register_page')?>" class="btn-get-started">Get Started</a>
-          </div>
-        </div><!-- End Carousel Item -->
-
-        <!-- <div class="carousel-item">
-          <img src="<?=base_url()?>assets-m/img/hero-carousel/hero-carousel-2.jpg" alt="">
-          <div class="carousel-container">
-            <h2>At vero eos et accusamus</h2>
-            <p>Nam libero tempore, cum soluta nobis est eligendi optio cumque nihil impedit quo minus id quod maxime placeat facere possimus, omnis voluptas assumenda est, omnis dolor repellendus. Temporibus autem quibusdam et aut officiis debitis aut.</p>
-            <a href="about.html" class="btn-get-started">Get Started</a>
-          </div>
-        </div> -->
-        <!-- End Carousel Item -->
-
-        <!-- <div class="carousel-item">
-          <img src="<?=base_url()?>assets-m/img/hero-carousel/hero-carousel-3.jpg" alt="">
-          <div class="carousel-container">
-            <h2>Temporibus autem quibusdam</h2>
-            <p>Beatae vitae dicta sunt explicabo. Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt omnis iste natus error sit voluptatem accusantium.</p>
-            <a href="about.html" class="btn-get-started">Get Started</a>
-          </div>
-        </div> -->
-        <!-- End Carousel Item -->
-
-        <?/*
-        <a class="carousel-control-prev" href="#hero-carousel" role="button" data-bs-slide="prev">
-          <span class="carousel-control-prev-icon bi bi-chevron-left" aria-hidden="true"></span>
-        </a>
-
-        <a class="carousel-control-next" href="#hero-carousel" role="button" data-bs-slide="next">
-          <span class="carousel-control-next-icon bi bi-chevron-right" aria-hidden="true"></span>
-        </a>
-        */?>
-
+    <!-- Page Title -->
+    <div class="page-title" data-aos="fade">
+      <div class="container">
+        <nav class="breadcrumbs">
+          <ol>
+            <li><a href="<?=base_url()?>">Home</a></li>
+            <li class="current">Create an account</li>
+          </ol>
+        </nav>
+        <h1>Create an account</h1>
       </div>
+    </div><!-- End Page Title -->
 
-      <div class="featured container">
-
-        <div class="row gy-4">
-
-          <div class="col-lg-4 d-flex" data-aos="fade-up" data-aos-delay="100">
-            <div class="featured-item position-relative">
-              <div class="icon"><i class="bi bi-bounding-box-circles icon"></i></div>
-              <h4><a href="" class="stretched-link">Easy to Use</a></h4>
-              <p>Intuitive and simple design that requires minimal training to get started.</p>
-            </div>
-          </div><!-- End Featured Item -->
-
-          <div class="col-lg-4 d-flex" data-aos="fade-up" data-aos-delay="200">
-            <div class="featured-item position-relative">
-              <div class="icon"><i class="bi bi-calendar4-week icon"></i></div>
-              <h4><a href="" class="stretched-link">More Secure</a></h4>
-              <p>Secure your sensitive inventory data with end-to-end encryption.</p>
-            </div>
-          </div><!-- End Featured Item -->
-
-          <div class="col-lg-4 d-flex" data-aos="fade-up" data-aos-delay="300">
-            <div class="featured-item position-relative">
-              <div class="icon"><i class="bi bi-broadcast icon"></i></div>
-              <h4><a href="" class="stretched-link">Efficiency & Performance</a></h4>
-              <p>Get real-time updates on stock levels and sales across multiple locations.</p>
-            </div>
-          </div><!-- End Featured Item -->
-
-        </div>
-
-      </div>
-
-    </section><!-- /Hero Section -->
-
-    <!-- About Section -->
-    <section id="about" class="section about">
+    <!-- Contact Section -->
+    <section id="contact" class="contact section">
 
       <div class="container" data-aos="fade-up" data-aos-delay="100">
 
-        <div class="row gy-4">
-          <div class="col-lg-6 order-1 order-lg-2">
-            <img src="<?=base_url()?>assets-m/img/about.jpg" class="img-fluid" alt="">
-          </div>
-          <div class="col-lg-6 order-2 order-lg-1 content">
-            <h3>The Glory Pre & Primary School Stationeries Inventory</h3>
-            <p class="fst-italic">
-              Motto: Mithali 22:6
-            </p>
-            <ul>
-              <li><i class="bi bi-check2-all"></i> <span>Streamline Supplies.</span></li>
-            </ul>
-            <?/*
-            <p>
-              Ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate
-              velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident
-            </p>
-            */?>
-          </div>
+      
+
+        <div class="row gy-4 mt-2">
+          <center><h2><div class="col-lg-6" data-aos="fade-up" data-aos-delay="300">Create new account</div></h2></center>
+        <center>
+          <div class="col-lg-6">
+            <!-- <form action="forms/contact.php" method="post" class="php-email-form" data-aos="fade-up" data-aos-delay="400"> -->
+              <form action="<?=base_url('main/doCreateAccount')?>" method="post" class="php-email-form" data-aos="fade-up" data-aos-delay="500">
+              <div class="row gy-4">
+              <div class="row gy-4">
+
+                <div class="col-md-12" style="text-align:left;">
+                  <label>Your Name</label>
+                  <input type="text" name="name" class="form-control" required="">
+                </div>
+
+                <div class="col-md-12 " style="text-align:left;">
+                  <label>Your Email</label>
+                  <input type="email" class="form-control" name="email" required="">
+                </div>
+
+                <div class="col-md-12" style="text-align:left;">
+                  <label>Password</label>
+                  <input type="password" class="form-control" name="password" required="">
+                </div>
+
+
+                <div class="col-md-12 text-center">
+                  <div class="loading">Loading</div>
+                  <!-- <div class="error-message"></div> -->
+
+                  <? if($this->session->flashdata('error')){ ?>
+                  <div class="error-message d-block">
+                      <?=$this->session->flashdata('error')?>
+                  </div>
+                  <? } ?>
+
+                  <? if($this->session->flashdata('success')){ ?>
+                  <div class="sent-message d-block">
+                      <?=$this->session->flashdata('success')?>
+                  </div>
+                  <? } ?>
+
+                  <div class="sent-message">Your message has been sent. Thank you!</div>
+
+                  <button type="submit">Create an account</button>
+                </div>
+
+              </div>
+            </form>
+          </div><!-- End Contact Form -->
+        </center>
         </div>
 
       </div>
 
-    </section><!-- /About Section -->
-
-    <!-- Services Section -->
-    <?/*
-    <section id="services" class="services section">
-
-      <div class="container">
-
-        <div class="row gy-4">
-
-          <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="100">
-            <div class="service-item  position-relative">
-              <div class="icon">
-                <i class="bi bi-activity"></i>
-              </div>
-              <a href="#" class="stretched-link">
-                <h3>Nesciunt Mete</h3>
-              </a>
-              <p>Provident nihil minus qui consequatur non omnis maiores. Eos accusantium minus dolores iure perferendis tempore et consequatur.</p>
-            </div>
-          </div><!-- End Service Item -->
-
-          <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="200">
-            <div class="service-item position-relative">
-              <div class="icon">
-                <i class="bi bi-broadcast"></i>
-              </div>
-              <a href="#" class="stretched-link">
-                <h3>Eosle Commodi</h3>
-              </a>
-              <p>Ut autem aut autem non a. Sint sint sit facilis nam iusto sint. Libero corrupti neque eum hic non ut nesciunt dolorem.</p>
-            </div>
-          </div><!-- End Service Item -->
-
-          <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="300">
-            <div class="service-item position-relative">
-              <div class="icon">
-                <i class="bi bi-easel"></i>
-              </div>
-              <a href="#" class="stretched-link">
-                <h3>Ledo Markt</h3>
-              </a>
-              <p>Ut excepturi voluptatem nisi sed. Quidem fuga consequatur. Minus ea aut. Vel qui id voluptas adipisci eos earum corrupti.</p>
-            </div>
-          </div><!-- End Service Item -->
-
-          
-
-      </div>
-
-    </section><!-- /Services Section -->
-    */?>
+    </section><!-- /Contact Section -->
 
   </main>
 
-  <footer id="footer" class="footer position-relative dark-background">
+ <footer id="footer" class="footer position-relative dark-background">
 
     
 
@@ -279,8 +200,8 @@
             <p><strong>Email:</strong> <span>info@example.com</span></p>
           </div>
         </div>
-
-        <!-- <div class="col-lg-2 col-md-3 footer-links">
+<!-- 
+        <div class="col-lg-2 col-md-3 footer-links">
           <h4>Useful Links</h4>
           <ul>
             <li><i class="bi bi-chevron-right"></i> <a href="#">Home</a></li>
@@ -290,7 +211,7 @@
           </ul>
         </div> -->
 
-        <!-- <div class="col-lg-2 col-md-3 footer-links">
+       <!--  <div class="col-lg-2 col-md-3 footer-links">
           <h4>Our Services</h4>
           <ul>
             <li><i class="bi bi-chevron-right"></i> <a href="#">Web Design</a></li>
@@ -298,9 +219,9 @@
             <li><i class="bi bi-chevron-right"></i> <a href="#">Product Management</a></li>
             <li><i class="bi bi-chevron-right"></i> <a href="#">Marketing</a></li>
           </ul>
-        </div> -->
-
-        <!-- <div class="col-lg-4 col-md-12">
+        </div>
+ -->
+       <!--  <div class="col-lg-4 col-md-12">
           <h4>Follow Us</h4>
           <p>Cras fermentum odio eu feugiat lide par naso tierra videa magna derita valies</p>
           <div class="social-links d-flex">
@@ -342,7 +263,7 @@
   <script src="<?=base_url()?>assets-m/vendor/waypoints/noframework.waypoints.js"></script>
   <script src="<?=base_url()?>assets-m/vendor/glightbox/js/glightbox.min.js"></script>
   <script src="<?=base_url()?>assets-m/vendor/imagesloaded/imagesloaded.pkgd.min.js"></script>
-  <script src="<?=base_url()?>assets-m/veddor/isotope-layout/isotope.pkgd.min.js"></script>
+  <script src="<?=base_url()?>assets-m/vendor/isotope-layout/isotope.pkgd.min.js"></script>
 
   <!-- Main JS File -->
   <script src="<?=base_url()?>assets-m/js/main.js"></script>

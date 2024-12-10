@@ -31,10 +31,7 @@
 										</div>
 										<!--end::Page title-->
 										<!--begin::Actions-->
-										<div class="d-flex align-items-center gap-2 gap-lg-3">
-											<a href="#" class="btn btn-flex btn-info btn-sm fs-7 fw-bold" data-bs-toggle="modal" data-bs-target="#kt_modal_new_address">+ Create Inventory</a>
-											<!-- <a href="#" class="btn btn-flex btn-primary h-40px fs-7 fw-bold" data-bs-toggle="modal" data-bs-target="#kt_modal_create_campaign">Add New Staff</a> -->
-										</div>
+										
 										<!--end::Actions-->
 									</div>
 									<!--end::Toolbar wrapper-->
@@ -113,8 +110,7 @@
 														</td>
 														
 														<td class="text-end">
-															<a href="#" class="btn btn-light btn-info btn-flex btn-center btn-sm edit-staff" data-kt-menu-placement="bottom-end" data-init="<?=$key['id']?>">Edit</a>
-															<a href="javascript:void(0);" class="btn btn-light btn-danger btn-flex btn-center btn-sm delete-inventory" data-init="<?=$key['id']?>">Delete</a>
+															-
 														</td>
 													</tr>
 													<? } ?>

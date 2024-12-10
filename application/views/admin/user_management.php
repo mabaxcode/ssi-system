@@ -8,7 +8,7 @@
 										<!--begin::Page title-->
 										<div class="page-title d-flex flex-column justify-content-center gap-1 me-3">
 											<!--begin::Title-->
-											<h1 class="page-heading d-flex flex-column justify-content-center text-gray-900 fw-bold fs-3 m-0">Inventory Management</h1>
+											<h1 class="page-heading d-flex flex-column justify-content-center text-gray-900 fw-bold fs-3 m-0">User Management</h1>
 											<!--end::Title-->
 											<!--begin::Breadcrumb-->
 											<ul class="breadcrumb breadcrumb-separatorless fw-semibold fs-7 my-0">
@@ -23,7 +23,7 @@
 												</li>
 												<!--end::Item-->
 												<!--begin::Item-->
-												<li class="breadcrumb-item text-muted">Inventory Management</li>
+												<li class="breadcrumb-item text-muted">User Management</li>
 												<!--end::Item-->
 												
 											</ul>
@@ -32,7 +32,7 @@
 										<!--end::Page title-->
 										<!--begin::Actions-->
 										<div class="d-flex align-items-center gap-2 gap-lg-3">
-											<a href="#" class="btn btn-flex btn-info btn-sm fs-7 fw-bold" data-bs-toggle="modal" data-bs-target="#kt_modal_new_address">+ Create Inventory</a>
+											<a href="#" class="btn btn-flex btn-info btn-sm fs-7 fw-bold" data-bs-toggle="modal" data-bs-target="#kt_modal_new_vendor">+ Create User Account</a>
 											<!-- <a href="#" class="btn btn-flex btn-primary h-40px fs-7 fw-bold" data-bs-toggle="modal" data-bs-target="#kt_modal_create_campaign">Add New Staff</a> -->
 										</div>
 										<!--end::Actions-->
@@ -70,16 +70,17 @@
 												<thead>
 													<tr class="text-start text-muted fw-bold fs-7 text-uppercase gs-0">
 														<th class="min-w-125px">Name</th>
-														<th class="min-w-125px">Category</th>
+														<th class="min-w-125px">Email</th>
 														<!-- <th class="min-w-125px">password</th> -->
-														<th class="min-w-125px">Stock</th>
 														<th class="min-w-125px">create Date</th>
+														<th class="min-w-125px">role</th>
+														<th class="min-w-125px">status</th>
 														<th class="text-end min-w-100px">Actions</th>
 													</tr>
 												</thead>
 												<tbody class="text-gray-600 fw-semibold">
-													<? if($inventorys){ ?>
-													<? foreach ($inventorys as $key) { ?>
+													<? if($users){ ?>
+													<? foreach ($users as $key) { ?>
 													<tr>
 														<td class="d-flex align-items-center">
 															<!--begin:: Avatar -->
@@ -98,23 +99,22 @@
 															</div>
 															<!--begin::User details-->
 														</td>
-														<td><?=$key['category']?></td>
-														<td>
-															<?
-																if ($key['stock'] == 0) {
-																	echo "<div class='badge badge-success fw-bold badge-lg'>Out Of Stock</div>";
-																} else {
-																	echo $key['stock'];
-																}
-															?>
-														</td>
+														<td><?=$key['email']?></td>
+														<!-- <td></td> -->
 														<td>
 															<?=dmy($key['create_dt'])?>
 														</td>
-														
+														<td>
+															<? if($key['user_type'] == '1'){
+																echo "Staff";
+															} else {
+																echo "Teachers";
+															} ?>
+														</td>
+														<td><div class="badge badge-success fw-bold badge-lg">Active</div></td>
 														<td class="text-end">
-															<a href="#" class="btn btn-light btn-info btn-flex btn-center btn-sm edit-staff" data-kt-menu-placement="bottom-end" data-init="<?=$key['id']?>">Edit</a>
-															<a href="javascript:void(0);" class="btn btn-light btn-danger btn-flex btn-center btn-sm delete-inventory" data-init="<?=$key['id']?>">Delete</a>
+															<a href="#" class="btn btn-light btn-primary btn-flex btn-center btn-sm complete-register-vendor" data-init="<?=$key['id']?>">Edit</a>
+															<a href="#" class="btn btn-light btn-danger btn-flex btn-center btn-sm delete-user" data-init="<?=$key['id']?>">Delete</a>
 														</td>
 													</tr>
 													<? } ?>
@@ -135,17 +135,17 @@
 
 
 
-						<div class="modal fade" id="kt_modal_new_address" tabindex="-1" aria-hidden="true">
+						<div class="modal fade" id="kt_modal_new_vendor" tabindex="-1" aria-hidden="true">
 			<!--begin::Modal dialog-->
 			<div class="modal-dialog modal-dialog-centered mw-650px">
 				<!--begin::Modal content-->
 				<div class="modal-content">
 					<!--begin::Form-->
-					<form class="form" action="#" id="kt_modal_new_address_form">
+					<form class="form" action="#" id="kt_modal_new_address_form_vendor">
 						<!--begin::Modal header-->
 						<div class="modal-header" id="kt_modal_new_address_header">
 							<!--begin::Modal title-->
-							<h2>Create Inventory</h2>
+							<h2>Create New User Account</h2>
 							<!--end::Modal title-->
 							<!--begin::Close-->
 							<div class="btn btn-sm btn-icon btn-active-color-primary" data-bs-dismiss="modal">
@@ -179,32 +179,34 @@
 								<!--begin::Input group-->
 								<div class="d-flex flex-column mb-5 fv-row">
 									<!--begin::Label-->
-									<label class="required fs-5 fw-semibold mb-2">Category</label>
+									<label class="required fs-5 fw-semibold mb-2">Email</label>
 									<!--end::Label-->
 									<!--begin::Input-->
-									<input class="form-control" placeholder="" name="category" />
+									<input class="form-control" placeholder="" name="email" />
 									<!--end::Input-->
 								</div>
-								<!--end::Input group-->
-								<!--begin::Input group-->
 
 								<div class="d-flex flex-column mb-5 fv-row">
 									<!--begin::Label-->
-									<label class="required fs-5 fw-semibold mb-2">Stock</label>
+									<label class="required fs-5 fw-semibold mb-2">Role</label>
 									<!--end::Label-->
 									<!--begin::Input-->
-									<input class="form-control" placeholder="" name="stock" type="number" />
-									<!--end::Input-->
+									<select class="form-control" name="role">
+										<option value="">Please Select Role</option>
+										<option value="1">Staff</option>
+										<option value="2">Teachers</option>
+									</select>
 								</div>
+								<!--end::Input group-->
+								<!--begin::Input group-->
 						
 								<!--end::Input group-->
 								<!--begin::Input group-->
-								<?/*
 								<div class="row g-9 mb-5">
 									<!--begin::Col-->
 									<div class="col-md-6 fv-row">
 										<!--begin::Label-->
-										<label class="fs-5 fw-semibold mb-2">Stock</label>
+										<label class="fs-5 fw-semibold mb-2">Password</label>
 										<!--end::Label-->
 										<!--begin::Input-->
 										<input class="form-control" type="password" placeholder="" name="password" />
@@ -222,7 +224,6 @@
 									</div>
 									<!--end::Col-->
 								</div>
-								*/?>
 							</div>
 							<!--end::Scroll-->
 						</div>
@@ -230,10 +231,10 @@
 						<!--begin::Modal footer-->
 						<div class="modal-footer flex-center">
 							<!--begin::Button-->
-							<button type="reset" id="kt_modal_new_address_cancel" class="btn btn-light me-3">Discard</button>
+							<button type="reset" id="kt_modal_new_address_cancel_vendor" class="btn btn-light me-3">Discard</button>
 							<!--end::Button-->
 							<!--begin::Button-->
-							<button type="submit" id="kt_modal_new_address_submit" class="btn btn-primary">
+							<button type="submit" id="kt_modal_new_address_submit_vendor" class="btn btn-primary">
 								<span class="indicator-label">Create</span>
 								<span class="indicator-progress">Please wait... 
 								<span class="spinner-border spinner-border-sm align-middle ms-2"></span></span>

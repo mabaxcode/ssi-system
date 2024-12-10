@@ -8,7 +8,7 @@
 										<!--begin::Page title-->
 										<div class="page-title d-flex flex-column justify-content-center gap-1 me-3">
 											<!--begin::Title-->
-											<h1 class="page-heading d-flex flex-column justify-content-center text-gray-900 fw-bold fs-3 m-0">Inventory Management</h1>
+											<h1 class="page-heading d-flex flex-column justify-content-center text-gray-900 fw-bold fs-3 m-0">Request New Item</h1>
 											<!--end::Title-->
 											<!--begin::Breadcrumb-->
 											<ul class="breadcrumb breadcrumb-separatorless fw-semibold fs-7 my-0">
@@ -23,7 +23,7 @@
 												</li>
 												<!--end::Item-->
 												<!--begin::Item-->
-												<li class="breadcrumb-item text-muted">Inventory Management</li>
+												<li class="breadcrumb-item text-muted">Request New Item</li>
 												<!--end::Item-->
 												
 											</ul>
@@ -32,7 +32,7 @@
 										<!--end::Page title-->
 										<!--begin::Actions-->
 										<div class="d-flex align-items-center gap-2 gap-lg-3">
-											<a href="#" class="btn btn-flex btn-info btn-sm fs-7 fw-bold" data-bs-toggle="modal" data-bs-target="#kt_modal_new_address">+ Create Inventory</a>
+											<a href="#" class="btn btn-flex btn-info btn-sm fs-7 fw-bold" data-bs-toggle="modal" data-bs-target="#kt_modal_new_address">+ Request Item</a>
 											<!-- <a href="#" class="btn btn-flex btn-primary h-40px fs-7 fw-bold" data-bs-toggle="modal" data-bs-target="#kt_modal_create_campaign">Add New Staff</a> -->
 										</div>
 										<!--end::Actions-->
@@ -74,6 +74,7 @@
 														<!-- <th class="min-w-125px">password</th> -->
 														<th class="min-w-125px">Stock</th>
 														<th class="min-w-125px">create Date</th>
+														<th class="min-w-125px">Status</th>
 														<th class="text-end min-w-100px">Actions</th>
 													</tr>
 												</thead>
@@ -99,22 +100,13 @@
 															<!--begin::User details-->
 														</td>
 														<td><?=$key['category']?></td>
-														<td>
-															<?
-																if ($key['stock'] == 0) {
-																	echo "<div class='badge badge-success fw-bold badge-lg'>Out Of Stock</div>";
-																} else {
-																	echo $key['stock'];
-																}
-															?>
-														</td>
+														<td><?=$key['stock']?></td>
 														<td>
 															<?=dmy($key['create_dt'])?>
 														</td>
-														
+														<td><div class="badge badge-warning fw-bold badge-lg">In Processing</div></td>
 														<td class="text-end">
-															<a href="#" class="btn btn-light btn-info btn-flex btn-center btn-sm edit-staff" data-kt-menu-placement="bottom-end" data-init="<?=$key['id']?>">Edit</a>
-															<a href="javascript:void(0);" class="btn btn-light btn-danger btn-flex btn-center btn-sm delete-inventory" data-init="<?=$key['id']?>">Delete</a>
+															<a href="javascript:void(0);" class="btn btn-light btn-danger btn-flex btn-center btn-sm delete-inventory" data-init="<?=$key['id']?>">Cancel Request</a>
 														</td>
 													</tr>
 													<? } ?>
@@ -145,7 +137,7 @@
 						<!--begin::Modal header-->
 						<div class="modal-header" id="kt_modal_new_address_header">
 							<!--begin::Modal title-->
-							<h2>Create Inventory</h2>
+							<h2>Request New Item</h2>
 							<!--end::Modal title-->
 							<!--begin::Close-->
 							<div class="btn btn-sm btn-icon btn-active-color-primary" data-bs-dismiss="modal">
