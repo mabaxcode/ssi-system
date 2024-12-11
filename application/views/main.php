@@ -186,7 +186,7 @@
 
         <div class="row gy-4">
           <div class="col-lg-6 order-1 order-lg-2">
-            <img src="<?=base_url()?>assets-m/img/about.jpg" class="img-fluid" alt="">
+            <img src="<?=base_url()?>assets-m/img/IMG_8023.JPG" class="img-fluid" alt="">
           </div>
           <div class="col-lg-6 order-2 order-lg-1 content">
             <h3>The Glory Pre & Primary School Stationeries Inventory</h3>
